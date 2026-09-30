@@ -1,6 +1,6 @@
 # Vantage Legal — adaptable law firm website concept
 
-An immersive, responsive law firm site concept with a GhostFibers hero, an interactive practice explorer, a guided process, editorial perspective, FAQ, and a final lens. Vantage is a demonstration identity, not an actual law firm. No results, reviews, lawyers, or contact destination are fabricated.
+An immersive, responsive law firm site concept with a persistent full-page GhostFibers background, an interactive practice explorer, a guided process, editorial perspective, FAQ, and a final lens. Vantage is a demonstration identity, not an actual law firm. No results, reviews, lawyers, or contact destination are fabricated.
 
 ## Local development
 
@@ -27,3 +27,9 @@ GPU components use dynamic imports and mount in view or on demand. Browsers with
 ## Tailor for a real firm
 
 Update `src/content.js`, the Vantage identity in `src/Experience.jsx`, and metadata in `index.html`. Verify practice areas, attorneys, jurisdictions, intake channel, privacy policy, and applicable advertising rules before presenting a variant as a real firm. The concept intentionally does not collect confidential client information or imply representation.
+
+## Continuous emerald / gold redesign
+
+`WorldBackground.jsx` keeps one viewport-sized GhostFibers renderer behind the entire page. Translucent surfaces preserve continuity; an original SVG fiber field supports devices without WebGL2. `GoldSculpture.jsx` uses React Three Fiber, Three.js and Drei Float for an original orbital sculpture. `SceneMotion.jsx` connects Lenis and GSAP ScrollTrigger for background depth, hero parallax, a panel zoom and reading progress. Motion continues to drive the supplied React Bits controls. The pause control and reduced-motion mode render still alternatives.
+
+No additional UI kits were installed: the supplied components already cover the controls and decorative patterns. This avoids duplicate implementations. The editorial layout, fallback artwork and sculpture were written specifically for this project. The specification and acceptance checks are in `tasks/plan.md`.

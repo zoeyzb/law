@@ -54,7 +54,7 @@ export default function Stepper({
 
   const handleComplete = () => {
     setDirection(1);
-    updateStep(totalSteps + 1);
+    onFinalStepCompleted();
   };
 
   return (
@@ -152,7 +152,13 @@ function SlideTransition({ children, direction, onHeightReady }) {
   const containerRef = useRef(null);
 
   useLayoutEffect(() => {
-    if (containerRef.current) onHeightReady(containerRef.current.offsetHeight);
+    const el = containerRef.current;
+    if (!el) return;
+    const update = () => onHeightReady(el.offsetHeight);
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    return () => observer.disconnect();
   }, [children, onHeightReady]);
 
   return (
@@ -198,7 +204,7 @@ function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }
   };
 
   return (
-    <motion.div onClick={handleClick} className="step-indicator" style={disableStepIndicators ? { pointerEvents: 'none', opacity: 0.5 } : {}} animate={status} initial={false}>
+    <motion.button type="button" aria-label={`Go to step ${step}`} aria-current={status === "active" ? "step" : undefined} disabled={disableStepIndicators} onClick={handleClick} className="step-indicator" style={disableStepIndicators ? { pointerEvents: 'none', opacity: 0.5 } : {}} animate={status} initial={false}>
       <motion.div
         variants={{
           inactive: { scale: 1, backgroundColor: '#222', color: '#a3a3a3' },
@@ -216,7 +222,7 @@ function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }
           <span className="step-number">{step}</span>
         )}
       </motion.div>
-    </motion.div>
+    </motion.button>
   );
 }
 

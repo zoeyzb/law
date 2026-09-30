@@ -1,0 +1,6 @@
+- [x] Inspect existing code and live hero/process transitions.
+- [x] Implement persistent scene and unified visual design.
+- [x] Improve content, practice controls and reduced motion.
+- [x] Production build and browser interaction verification.
+- [ ] Real-device mobile/zoom and WebGL verification (cloud browser lacks WebGL; keyboard zoom did not change viewport).
+- [ ] Publish and verify production deployment.

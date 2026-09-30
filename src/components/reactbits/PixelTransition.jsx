@@ -49,6 +49,10 @@ function PixelTransition({
 
   const animatePixels = activate => {
     setIsActive(activate);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.dataset.motion === 'paused') {
+      if (activeRef.current) activeRef.current.style.display = activate ? 'block' : 'none';
+      return;
+    }
 
     const pixelGridEl = pixelGridRef.current;
     const activeEl = activeRef.current;
@@ -92,6 +96,11 @@ function PixelTransition({
     });
   };
 
+  useEffect(() => () => {
+    delayedCallRef.current?.kill();
+    if (pixelGridRef.current) gsap.killTweensOf(pixelGridRef.current.children);
+  }, []);
+
   const handleEnter = () => {
     if (!isActive) animatePixels(true);
   };
@@ -110,7 +119,10 @@ function PixelTransition({
       style={style}
       onMouseEnter={!isTouchDevice ? handleEnter : undefined}
       onMouseLeave={!isTouchDevice ? handleLeave : undefined}
-      onClick={isTouchDevice ? handleClick : undefined}
+      role="button"
+      aria-pressed={isActive}
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleClick(); } }}
+      onClick={handleClick}
       onFocus={!isTouchDevice ? handleEnter : undefined}
       onBlur={!isTouchDevice ? handleLeave : undefined}
       tabIndex={0}
