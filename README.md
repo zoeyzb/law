@@ -1,35 +1,11 @@
-# Vantage Legal — adaptable law firm website concept
+# Law Your Way
 
-An immersive, responsive law firm site concept with a persistent full-page GhostFibers background, an interactive practice explorer, a guided process, editorial perspective, FAQ, and a final lens. Vantage is a demonstration identity, not an actual law firm. No results, reviews, lawyers, or contact destination are fabricated.
+A reusable law website concept with a monochrome charcoal/white design, muted slate accents, a continuous GhostFibers backdrop and an original silver gavel. Practice tabs, preparation checkboxes, responsive navigation and FAQ controls are functional. No firm credentials, testimonials or contact destinations are fabricated.
 
-## Local development
+Run `npm ci`, `npm run dev`, and `npm run build`.
 
-```sh
-npm ci
-npm run dev
-npm run build
-```
+The current revision removes component-showcase decoration and repeated content in favor of five clear sections. Supplied React Bits source remains available in `src/components/reactbits/` with its license in `REACT-BITS-LICENSE.md`; only GhostFibers is active in this composition. The gavel and SVG fallback are original work, using React Three Fiber, Three.js and Drei. GSAP ScrollTrigger and Lenis provide restrained scrolling and depth; motion can be paused and respects reduced-motion settings. No remote imagery or fonts are required.
 
-## Components and provenance
+The frontend-ui-engineering workflow from addyosmani/agent-skills influenced semantic controls, consistent hierarchy, responsive layout and removal of oversized padding. Specification-driven requirements are in `tasks/monochrome-plan.md`. No reference repository was blindly merged.
 
-The supplied React Bits source is in `src/components/reactbits/` (27 distinct components; the two `undefined` entries in the attachment both referred to ThoughtLine). Its license is included in `REACT-BITS-LICENSE.md`. We adapted colors, keyboard access, images, and the 3D model for this website. The supplied Magic UI review marquee was reimplemented as a principle strip with no fictitious testimonials.
-
-The components are placed by purpose:
-
-- Hero: GhostFibers, TrueFocus, MagicRings, SpecularButton, StarBorder, SplitFlapText, optional SplashCursor.
-- Expertise: LogoLoop, RubberSegment, LineSidebar, MorphSlider, FlexCarousel, PixelTransition.
-- Method: CountUp, Counter, Stepper, BorderGlow, ThoughtLine, SpringCheck.
-- Perspective: ScrollVelocity, TechText, DitherVeil, MaskedHeading, CurvedLoop.
-- Questions and close: ParticleText, ElectricBorder, FluidGlass, marquee.
-
-GPU components use dynamic imports and mount in view or on demand. Browsers without WebGL2 get a non-photographic fiber fallback and functional alternative controls. Reduced-motion users get still effects. The 3D lens uses a local model and local abstract imagery. The site does not fetch external images, fonts, analytics, or tracking.
-
-## Tailor for a real firm
-
-Update `src/content.js`, the Vantage identity in `src/Experience.jsx`, and metadata in `index.html`. Verify practice areas, attorneys, jurisdictions, intake channel, privacy policy, and applicable advertising rules before presenting a variant as a real firm. The concept intentionally does not collect confidential client information or imply representation.
-
-## Continuous emerald / gold redesign
-
-`WorldBackground.jsx` keeps one viewport-sized GhostFibers renderer behind the entire page. Translucent surfaces preserve continuity; an original SVG fiber field supports devices without WebGL2. `GoldSculpture.jsx` uses React Three Fiber, Three.js and Drei Float for an original orbital sculpture. `SceneMotion.jsx` connects Lenis and GSAP ScrollTrigger for background depth, hero parallax, a panel zoom and reading progress. Motion continues to drive the supplied React Bits controls. The pause control and reduced-motion mode render still alternatives.
-
-No additional UI kits were installed: the supplied components already cover the controls and decorative patterns. This avoids duplicate implementations. The editorial layout, fallback artwork and sculpture were written specifically for this project. The specification and acceptance checks are in `tasks/plan.md`.
+Before presenting this as a real firm's website, verify practice areas, attorneys, jurisdictions and contact/intake details. The current concept collects no confidential information. WebGL fallbacks are intentionally available; cloud browser visual review uses those fallbacks.

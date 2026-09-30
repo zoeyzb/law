@@ -1,6 +1,6 @@
 // Replace this content with a firm's verified details before presenting it as that firm's site.
 export const firm = {
-  name: 'VANTAGE',
+  name: 'Law Your Way',
   descriptor: 'LEGAL',
   email: '',
   phone: '',

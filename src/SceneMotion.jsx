@@ -14,11 +14,10 @@ export default function SceneMotion({ paused }) {
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(tick);
     const context = gsap.context(() => {
-      gsap.to('.world-scene', { scale: 1.18, rotation: 5, ease: 'none', scrollTrigger: { trigger: 'main', start: 'top top', end: 'bottom bottom', scrub: 1.5 } });
+      gsap.to('.world-scene', { scale: 1.08, rotation: 5, ease: 'none', scrollTrigger: { trigger: 'main', start: 'top top', end: 'bottom bottom', scrub: 1.5 } });
       gsap.to('.hero-copy', { y: -45, ease: 'none', scrollTrigger: { trigger: '.exp-hero', start: 'top top', end: 'bottom top', scrub: 1 } });
-      gsap.to('.hero-art', { scale: 1.25, y: 60, rotation: -12, ease: 'none', scrollTrigger: { trigger: '.exp-hero', start: 'top top', end: 'bottom top', scrub: 1.2 } });
-      gsap.fromTo('.dither-panel', { scale: .92, borderRadius: 80 }, { scale: 1, borderRadius: 4, ease: 'none', scrollTrigger: { trigger: '.dither-panel', start: 'top 95%', end: 'center center', scrub: 1 } });
-      gsap.utils.toArray('.exp-heading-row, .questions-grid, .prepare, .next-layout').forEach(el => {
+      gsap.to('.hero-art', { scale: 1.06, y: 60, rotation: -3, ease: 'none', scrollTrigger: { trigger: '.exp-hero', start: 'top top', end: 'bottom top', scrub: 1.2 } });
+      gsap.utils.toArray('.exp-heading-row').forEach(el => {
         gsap.from(el, { y: 32, duration: .9, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 94%', once: true } });
       });
       gsap.to('.reading-progress', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: 'main', start: 'top top', end: 'bottom bottom', scrub: true } });
